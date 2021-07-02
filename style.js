@@ -11,6 +11,8 @@ console.log(schedule);
 //console.log(scheduleArray);
 
 var currentHour = moment().hour;
+var futureHour = moment().endOf('hour').fromNow();
+var pastHour = moment().startOf('hour').fromNow();
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMM Do"));
 
@@ -18,9 +20,17 @@ console.log("today's date" + today);
 
 //TODO: create a way to check if current time is present time, past time, or future time.
 
+$ pastPresentFuture() {
+    if (timeEl === currentHour){
+        document.getElementById("#time").style.setProperty("")
+    }
+   
+}
+
+
 //TODO: save button index to lock it and creat hover
 //saveBtn.addEventListener("click", localStorage.setItem("schedule", "textarea"));
-saveBtn.addEventListener("storage", () => {
+saveBtn.addEventListener("click", () => {
   // When local storage changes, dump the list to
   // the console.
   console.log(JSON.parse(window.localStorage.getItem("textarea")));
